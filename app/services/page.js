@@ -4,7 +4,6 @@ import ServiceDetailSection from "@/components/ServiceDetailSection";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
 import { services } from "@/lib/services";
-import { company } from "@/lib/company";
 
 export const metadata = {
   title: { absolute: "Industrial Fabrication Services | JPS Chennai" },
