@@ -2,7 +2,6 @@ import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/FaqAccordion";
 import CTASection from "@/components/CTASection";
 import { faqs } from "@/lib/faq";
-import { company } from "@/lib/company";
 
 export const metadata = {
   title: { absolute: "Industrial Fabrication FAQs | JPS Chennai" },
