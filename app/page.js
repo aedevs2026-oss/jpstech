@@ -20,6 +20,7 @@ export const metadata = {
   description:
     "JAYAM TECH ENGINEERING fabricates industrial conveyors, dal mill machinery, SS 304 pools, automated gates and custom metal structures from Tiruvottiyur, Chennai.",
   alternates: { canonical: "/" },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     title: "Industrial Fabrication & Engineering | JPS Chennai",
