@@ -2,7 +2,6 @@ import SectionHeading from "@/components/SectionHeading";
 import GalleryFilter from "@/components/GalleryFilter";
 import CTASection from "@/components/CTASection";
 import { galleryItems } from "@/lib/unsplashImages";
-import { company } from "@/lib/company";
 
 export const metadata = {
   title: { absolute: "Project Gallery | JAYAM TECH ENGINEERING JPS" },
