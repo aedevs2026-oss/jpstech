@@ -2,15 +2,17 @@ import SectionHeading from "@/components/SectionHeading";
 import FaqAccordion from "@/components/FaqAccordion";
 import CTASection from "@/components/CTASection";
 import { faqs } from "@/lib/faq";
-import { company } from "@/lib/company";
 
 export const metadata = {
-  title: "FAQ",
+  title: { absolute: "Industrial Fabrication FAQs | JPS Chennai" },
   description:
-    "Frequently asked questions about lead times, materials (SS 304 vs MS), installation, AMC, warranty, and requesting a quote from JAYAM TECH ENGINEERING.",
+    "Find answers about fabrication materials, SS 304 versus mild steel, project specifications, installation scope and requesting a quotation from JAYAM TECH ENGINEERING.",
+  alternates: { canonical: "/faq" },
   openGraph: {
-    title: `FAQ | ${company.name}`,
-    description: "Answers about fabrication, materials, and project process.",
+    type: "website",
+    title: "Industrial Fabrication FAQs | JPS Chennai",
+    description: "Answers about fabrication materials, project scope and quotations.",
+    url: "/faq",
   },
 };
 

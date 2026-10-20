@@ -3,12 +3,15 @@ import ContactForm from "@/components/ContactForm";
 import { company } from "@/lib/company";
 
 export const metadata = {
-  title: "Contact",
+  title: { absolute: "Contact & Request a Quote | JPS Chennai" },
   description:
-    "Contact JAYAM TECH ENGINEERING in Tiruvottiyur, Chennai — call, WhatsApp, or send an enquiry for fabrication and product quotations.",
+    "Contact JAYAM TECH ENGINEERING at Tiruvottiyur, Chennai for industrial fabrication, machinery, automated gates, SS pools and project quotations.",
+  alternates: { canonical: "/contact" },
   openGraph: {
-    title: `Contact | ${company.name}`,
-    description: `Reach us at ${company.phone.primary} or visit our Tiruvottiyur works.`,
+    type: "website",
+    title: "Contact & Request a Quote | JPS Chennai",
+    description: "Call, WhatsApp, get directions or send a project enquiry to JAYAM TECH ENGINEERING.",
+    url: "/contact",
   },
 };
 
