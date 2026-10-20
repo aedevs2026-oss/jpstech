@@ -33,4 +33,4 @@ Use the factual business address consistently: 117, 1st St, Shanmuga Puram, Tiru
 - Validate with Search Console URL inspection, Core Web Vitals, Rich Results Test and the rendered page.
 
 ## Keyword seed library
-See `lib/seo-keyword-clusters.js`. It is a directional seed map based on actual listed products/services and buyer intents, not a verified search-volume export. Confirm priorities in Search Console and Keyword Planner before expanding it toward 5,000 query variants.
+See `docs/seo-keyword-research.csv` for 5,000 search-intent query candidates and `lib/seo-keyword-clusters.js` for the core topic map. These phrases are research candidates, not verified search-volume data; validate demand, competition and service-area relevance in Search Console and Keyword Planner before publishing or prioritising them.
