@@ -11,7 +11,6 @@ export const metadata = {
   description:
     "Learn about JAYAM TECH ENGINEERING, a Tiruvottiyur Chennai engineering and fabrication company working on industrial equipment, SS/MS fabrication, gates and plant systems.",
   alternates: { canonical: "/about" },
-  alternates: { canonical: "/about" },
   openGraph: {
     type: "website",
     title: "About JAYAM TECH ENGINEERING | JPS Chennai",
