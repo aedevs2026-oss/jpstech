@@ -2,7 +2,6 @@ import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
 import CTASection from "@/components/CTASection";
 import { testimonials } from "@/lib/testimonials";
-import { company } from "@/lib/company";
 
 export const metadata = {
   title: { absolute: "Client Feedback | JAYAM TECH ENGINEERING JPS" },
