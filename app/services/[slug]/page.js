@@ -6,8 +6,10 @@ import ServiceIcon from "@/components/ServiceIcon";
 import ServiceCard from "@/components/ServiceCard";
 import CTASection from "@/components/CTASection";
 import Reveal from "@/components/Reveal";
+import JsonLd from "@/components/JsonLd";
 import { company } from "@/lib/company";
 import { getServiceBySlug, services } from "@/lib/services";
+import { buildMetaDescription, createBreadcrumbSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -16,14 +18,29 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  if (!service) return { title: "Service Not Found" };
+  if (!service) return { title: "Service Not Found", robots: { index: false, follow: false } };
+
+  const path = `/services/${service.slug}`;
+  const title = `${service.title} | JPS Chennai`;
+  const description = buildMetaDescription(service.description, service.description);
+
   return {
-    title: service.title,
-    description: service.details || service.description,
+    title: { absolute: title },
+    description,
+    alternates: { canonical: path },
     openGraph: {
-      title: `${service.title} | ${company.name}`,
-      description: service.description,
+      type: "website",
+      title,
+      description,
+      url: path,
+      siteName: company.name,
       images: [{ url: service.image.src, alt: service.image.alt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [service.image.src],
     },
   };
 }
@@ -33,10 +50,37 @@ export default async function ServiceDetailPage({ params }) {
   const service = getServiceBySlug(slug);
   if (!service) notFound();
 
+  const path = `/services/${service.slug}`;
   const related = services.filter((s) => s.slug !== slug).slice(0, 3);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "" },
+    { name: "Services", path: "/services" },
+    { name: service.title, path },
+  ]);
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    serviceType: service.title,
+    description: service.details || service.description,
+    url: `${company.siteUrl}${path}`,
+    image: service.image.src.startsWith("http") ? service.image.src : `${company.siteUrl}${service.image.src}`,
+    provider: {
+      "@type": "Organization",
+      name: company.name,
+      url: company.siteUrl,
+      telephone: company.phone.primary,
+    },
+    areaServed: [
+      { "@type": "City", name: "Chennai" },
+      { "@type": "AdministrativeArea", name: "Tamil Nadu" },
+    ],
+  };
 
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={serviceSchema} />
       <section className="relative isolate overflow-hidden metallic-bg">
         <div className="absolute inset-0">
           <Image
@@ -69,6 +113,13 @@ export default async function ServiceDetailPage({ params }) {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-steel/20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-5 text-sm leading-relaxed text-ink-muted sm:px-6 lg:px-8">
+          JAYAM TECH ENGINEERING provides {service.title.toLowerCase()} from Tiruvottiyur, Chennai.
+          Contact us to discuss specifications, site requirements, and project coverage across Tamil Nadu.
         </div>
       </section>
 
@@ -111,9 +162,7 @@ export default async function ServiceDetailPage({ params }) {
               <ul className="mt-4 space-y-3">
                 {service.features?.map((feature) => (
                   <li key={feature} className="flex gap-3 text-sm text-ink-muted">
-                    <span className="text-teal" aria-hidden="true">
-                      ✓
-                    </span>
+                    <span className="text-teal" aria-hidden="true">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -125,18 +174,13 @@ export default async function ServiceDetailPage({ params }) {
               <h2 className="font-display text-xl font-bold text-navy">Applications</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {service.applications?.map((app) => (
-                  <li
-                    key={app}
-                    className="border border-steel/25 bg-surface px-3 py-1.5 text-sm text-ink-muted"
-                  >
+                  <li key={app} className="border border-steel/25 bg-surface px-3 py-1.5 text-sm text-ink-muted">
                     {app}
                   </li>
                 ))}
               </ul>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/contact" className="btn-teal">
-                  Request a quote
-                </Link>
+                <Link href="/contact" className="btn-teal">Request a quote</Link>
                 <a
                   href={company.whatsappUrl}
                   target="_blank"
@@ -153,9 +197,7 @@ export default async function ServiceDetailPage({ params }) {
         <div className="mt-16">
           <SectionHeading eyebrow="Explore More" title="Other services" />
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((s) => (
-              <ServiceCard key={s.slug} service={s} />
-            ))}
+            {related.map((s) => <ServiceCard key={s.slug} service={s} />)}
           </div>
         </div>
       </section>
