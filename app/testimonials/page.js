@@ -9,6 +9,7 @@ export const metadata = {
   description:
     "Explore client feedback about JAYAM TECH ENGINEERING's industrial equipment, SS pools, automated gates and fabrication projects.",
   alternates: { canonical: "/testimonials" },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     title: "Client Feedback | JAYAM TECH ENGINEERING JPS",
