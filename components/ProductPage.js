@@ -5,12 +5,21 @@ import ProductSpecTable from "./ProductSpecTable";
 import ProductCard from "./ProductCard";
 import CTASection from "./CTASection";
 import { getRelatedProducts } from "@/lib/products";
+import { company } from "@/lib/company";
+import JsonLd from "@/components/JsonLd";
+import { createBreadcrumbSchema } from "@/lib/seo";
 
 export default function ProductPage({ product }) {
   const related = getRelatedProducts(product.related || []);
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "" },
+    { name: "Products", path: "/products" },
+    { name: product.title, path: `/products/${product.slug}` },
+  ]);
 
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       <section className="relative isolate overflow-hidden metallic-bg">
         <div className="absolute inset-0">
           <Image
@@ -43,6 +52,14 @@ export default function ProductPage({ product }) {
               </span>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-steel/20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-5 text-sm leading-relaxed text-ink-muted sm:px-6 lg:px-8">
+          JAYAM TECH ENGINEERING is based in Tiruvottiyur, Chennai and supplies engineered product
+          solutions for industrial and commercial requirements. Contact us to discuss specifications,
+          customization, and project coverage across Tamil Nadu.
         </div>
       </section>
 
