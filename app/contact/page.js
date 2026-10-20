@@ -7,7 +7,6 @@ export const metadata = {
   description:
     "Contact JAYAM TECH ENGINEERING at Tiruvottiyur, Chennai for industrial fabrication, machinery, automated gates, SS pools and project quotations.",
   alternates: { canonical: "/contact" },
-  alternates: { canonical: "/contact" },
   openGraph: {
     type: "website",
     title: "Contact & Request a Quote | JPS Chennai",
