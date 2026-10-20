@@ -7,12 +7,15 @@ import { services } from "@/lib/services";
 import { company } from "@/lib/company";
 
 export const metadata = {
-  title: "Services",
+  title: { absolute: "Industrial Fabrication Services | JPS Chennai" },
   description:
-    "Full list of JAYAM TECH ENGINEERING services — conveyors, gates, SS/MS fabrication, piping, blowers, chimneys, tanks, and custom engineering.",
+    "Browse conveyor manufacturing, SS/MS fabrication, automated gates, piping, blowers, dust collectors, chimneys, tanks and custom engineering services in Chennai.",
+  alternates: { canonical: "/services" },
   openGraph: {
-    title: `Services | ${company.name}`,
-    description: "Industrial manufacturing & fabrication services in Chennai.",
+    type: "website",
+    title: "Industrial Fabrication Services | JPS Chennai",
+    description: "Industrial manufacturing, fabrication and site installation services from JAYAM TECH ENGINEERING.",
+    url: "/services",
   },
 };
 
