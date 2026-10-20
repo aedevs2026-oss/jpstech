@@ -11,6 +11,7 @@ export const metadata = {
   description:
     "Browse conveyor manufacturing, SS/MS fabrication, automated gates, piping, blowers, dust collectors, chimneys, tanks and custom engineering services in Chennai.",
   alternates: { canonical: "/services" },
+  alternates: { canonical: "/services" },
   openGraph: {
     type: "website",
     title: "Industrial Fabrication Services | JPS Chennai",
