@@ -4,36 +4,34 @@ import { services } from "@/lib/services";
 
 export default function sitemap() {
   const base = company.siteUrl;
-  const now = new Date();
 
+  // Do not stamp every URL with the current time: lastModified should reflect
+  // the actual content update date when that information is available.
   const staticRoutes = [
-    "",
-    "/about",
-    "/services",
-    "/products",
-    "/gallery",
-    "/testimonials",
-    "/faq",
-    "/contact",
-  ].map((path) => ({
+    { path: "", frequency: "weekly", priority: 1 },
+    { path: "/about", frequency: "monthly", priority: 0.8 },
+    { path: "/services", frequency: "weekly", priority: 0.9 },
+    { path: "/products", frequency: "weekly", priority: 0.9 },
+    { path: "/gallery", frequency: "monthly", priority: 0.6 },
+    { path: "/testimonials", frequency: "monthly", priority: 0.5 },
+    { path: "/faq", frequency: "monthly", priority: 0.6 },
+    { path: "/contact", frequency: "monthly", priority: 0.8 },
+  ].map(({ path, frequency, priority }) => ({
     url: `${base}${path}`,
-    lastModified: now,
-    changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.8,
+    changeFrequency: frequency,
+    priority,
   }));
 
-  const productRoutes = products.map((p) => ({
-    url: `${base}/products/${p.slug}`,
-    lastModified: now,
+  const productRoutes = products.map((product) => ({
+    url: `${base}/products/${product.slug}`,
     changeFrequency: "monthly",
-    priority: 0.7,
+    priority: 0.8,
   }));
 
-  const serviceRoutes = services.map((s) => ({
-    url: `${base}/services/${s.slug}`,
-    lastModified: now,
+  const serviceRoutes = services.map((service) => ({
+    url: `${base}/services/${service.slug}`,
     changeFrequency: "monthly",
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...productRoutes, ...serviceRoutes];
