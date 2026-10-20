@@ -5,12 +5,15 @@ import { testimonials } from "@/lib/testimonials";
 import { company } from "@/lib/company";
 
 export const metadata = {
-  title: "Testimonials",
+  title: { absolute: "Client Feedback | JAYAM TECH ENGINEERING JPS" },
   description:
-    "Client feedback for JAYAM TECH ENGINEERING projects — dal mill plants, SS pools, gates, and industrial fabrication.",
+    "Explore client feedback about JAYAM TECH ENGINEERING's industrial equipment, SS pools, automated gates and fabrication projects.",
+  alternates: { canonical: "/testimonials" },
   openGraph: {
-    title: `Testimonials | ${company.name}`,
-    description: "What industrial and commercial clients say about our work.",
+    type: "website",
+    title: "Client Feedback | JAYAM TECH ENGINEERING JPS",
+    description: "Feedback about industrial equipment and fabrication projects.",
+    url: "/testimonials",
   },
 };
 
