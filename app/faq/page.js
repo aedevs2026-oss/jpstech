@@ -9,6 +9,7 @@ export const metadata = {
   description:
     "Find answers about fabrication materials, SS 304 versus mild steel, project specifications, installation scope and requesting a quotation from JAYAM TECH ENGINEERING.",
   alternates: { canonical: "/faq" },
+  alternates: { canonical: "/faq" },
   openGraph: {
     type: "website",
     title: "Industrial Fabrication FAQs | JPS Chennai",
