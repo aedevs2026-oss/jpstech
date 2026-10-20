@@ -2,7 +2,6 @@ import SectionHeading from "@/components/SectionHeading";
 import ProductCard from "@/components/ProductCard";
 import CTASection from "@/components/CTASection";
 import { products } from "@/lib/products";
-import { company } from "@/lib/company";
 
 export const metadata = {
   title: { absolute: "Industrial Products & Machinery | JPS Chennai" },
