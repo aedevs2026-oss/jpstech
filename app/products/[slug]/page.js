@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import ProductPage from "@/components/ProductPage";
 import { getProductBySlug, products } from "@/lib/products";
-import { getProductPageMetadata } from "@/lib/seo";
+import { getProductPageMetadata, createBreadcrumbSchema } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -10,7 +11,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
-  if (!product) return { title: "Product Not Found", robots: { index: false, follow: false } };
+  if (!product) {
+    return { title: "Product Not Found", robots: { index: false, follow: false } };
+  }
   return getProductPageMetadata(product);
 }
 
@@ -18,5 +21,17 @@ export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) notFound();
-  return <ProductPage product={product} />;
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Products", path: "/products" },
+    { name: product.title, path: `/products/${product.slug}` },
+  ]);
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <ProductPage product={product} />
+    </>
+  );
 }
