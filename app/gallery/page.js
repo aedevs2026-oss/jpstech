@@ -9,6 +9,7 @@ export const metadata = {
   description:
     "View project images of automated gates, stainless steel swimming pools, fabrication works and industrial equipment from JAYAM TECH ENGINEERING.",
   alternates: { canonical: "/gallery" },
+  alternates: { canonical: "/gallery" },
   openGraph: {
     type: "website",
     title: "Project Gallery | JAYAM TECH ENGINEERING JPS",
