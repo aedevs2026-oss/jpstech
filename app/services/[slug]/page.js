@@ -18,7 +18,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  if (!service) return { title: "Service Not Found", robots: { index: false, follow: false } };
+  if (!service) {
+    return { title: "Service Not Found", robots: { index: false, follow: false } };
+  }
   return getServicePageMetadata(service);
 }
 
@@ -30,29 +32,11 @@ export default async function ServiceDetailPage({ params }) {
   const path = `/services/${service.slug}`;
   const related = services.filter((s) => s.slug !== slug).slice(0, 3);
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", path: "" },
+    { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: service.title, path },
   ]);
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    serviceType: service.title,
-    description: service.details || service.description,
-    url: `${company.siteUrl}${path}`,
-    image: service.image.src.startsWith("http") ? service.image.src : `${company.siteUrl}${service.image.src}`,
-    provider: {
-      "@type": "Organization",
-      name: company.name,
-      url: company.siteUrl,
-      telephone: company.phone.primary,
-    },
-    areaServed: [
-      { "@type": "City", name: "Chennai" },
-      { "@type": "AdministrativeArea", name: "Tamil Nadu" },
-    ],
-  };
+  const serviceSchema = createServiceSchema(service);
 
   return (
     <>
