@@ -9,7 +9,7 @@ import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
 import { company } from "@/lib/company";
 import { getServiceBySlug, services } from "@/lib/services";
-import { buildMetaDescription, createBreadcrumbSchema } from "@/lib/seo";
+import { getServicePageMetadata, createBreadcrumbSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -19,30 +19,7 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return { title: "Service Not Found", robots: { index: false, follow: false } };
-
-  const path = `/services/${service.slug}`;
-  const title = `${service.title} | JPS Chennai`;
-  const description = buildMetaDescription(service.description, service.description);
-
-  return {
-    title: { absolute: title },
-    description,
-    alternates: { canonical: path },
-    openGraph: {
-      type: "website",
-      title,
-      description,
-      url: path,
-      siteName: company.name,
-      images: [{ url: service.image.src, alt: service.image.alt }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [service.image.src],
-    },
-  };
+  return getServicePageMetadata(service);
 }
 
 export default async function ServiceDetailPage({ params }) {
