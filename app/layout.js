@@ -39,9 +39,6 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 const localBusinessJsonLd = {
@@ -61,24 +58,12 @@ const localBusinessJsonLd = {
     postalCode: company.address.pincode,
     addressCountry: "IN",
   },
-  geo: {
-    "@type": "GeoCoordinates",
-    // TODO: confirm exact lat/long with client
-    latitude: 13.1602,
-    longitude: 80.3018,
-  },
+
   areaServed: {
     "@type": "AdministrativeArea",
     name: "Greater Chennai, Tamil Nadu",
   },
-  priceRange: "$$",
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "09:00",
-    closes: "18:00",
-    // TODO: confirm business hours with client
-  },
+
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Fabrication & Engineering Services",
