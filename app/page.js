@@ -16,12 +16,17 @@ import { stats } from "@/lib/stats";
 import { clientVideo } from "@/lib/clientAssets";
 
 export const metadata = {
-  title: "Industrial Fabrication & Engineering | Chennai",
+  title: { absolute: "Industrial Fabrication & Engineering | JPS Chennai" },
   description:
-    "JAYAM TECH ENGINEERING fabricates SS swimming pools, dal mill equipment, automated gates, conveyors, and custom industrial solutions in Chennai.",
+    "JAYAM TECH ENGINEERING fabricates industrial conveyors, dal mill machinery, SS 304 pools, automated gates and custom metal structures from Tiruvottiyur, Chennai.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: `${company.name} | Quality Fabrication Chennai`,
-    description: company.tagline,
+    type: "website",
+    title: "Industrial Fabrication & Engineering | JPS Chennai",
+    description:
+      "Industrial equipment, SS/MS fabrication and engineered product lines from JAYAM TECH ENGINEERING in Chennai.",
+    url: "/",
+    images: [{ url: "/logo.png", alt: "JAYAM TECH ENGINEERING JPS logo" }],
   },
 };
 
