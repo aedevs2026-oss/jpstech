@@ -7,12 +7,15 @@ import { unsplashImages } from "@/lib/unsplashImages";
 import { services } from "@/lib/services";
 
 export const metadata = {
-  title: "About Us",
+  title: { absolute: "About JAYAM TECH ENGINEERING | JPS Chennai" },
   description:
-    "Learn about JAYAM TECH ENGINEERING — Chennai industrial fabricators delivering SS/MS works, plant equipment, gates, and custom engineering solutions.",
+    "Learn about JAYAM TECH ENGINEERING, a Tiruvottiyur Chennai engineering and fabrication company working on industrial equipment, SS/MS fabrication, gates and plant systems.",
+  alternates: { canonical: "/about" },
   openGraph: {
-    title: `About | ${company.name}`,
-    description: company.tagline,
+    type: "website",
+    title: "About JAYAM TECH ENGINEERING | JPS Chennai",
+    description: "Company background, engineering capabilities and fabrication services in Chennai, Tamil Nadu.",
+    url: "/about",
   },
 };
 
