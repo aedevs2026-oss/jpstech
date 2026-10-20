@@ -9,7 +9,6 @@ export const metadata = {
   description:
     "Explore dal mill equipment, SS 304 swimming pools, pool ladders, automated gates and boiler steam-line vacuum systems from JAYAM TECH ENGINEERING.",
   alternates: { canonical: "/products" },
-  alternates: { canonical: "/products" },
   openGraph: {
     type: "website",
     title: "Industrial Products & Machinery | JPS Chennai",
