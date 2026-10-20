@@ -35,6 +35,11 @@ export const metadata = {
     description: company.tagline,
     images: [{ url: "/logo.png", width: 512, height: 512, alt: company.name }],
   },
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    shortcut: "/logo.png",
+    apple: [{ url: "/logo.png", type: "image/png" }],
+  },
   robots: {
     index: true,
     follow: true,
