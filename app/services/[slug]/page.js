@@ -9,7 +9,7 @@ import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
 import { company } from "@/lib/company";
 import { getServiceBySlug, services } from "@/lib/services";
-import { getServicePageMetadata, createBreadcrumbSchema } from "@/lib/seo";
+import { getServicePageMetadata, createBreadcrumbSchema, createServiceSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
