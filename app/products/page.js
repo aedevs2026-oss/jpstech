@@ -5,12 +5,15 @@ import { products } from "@/lib/products";
 import { company } from "@/lib/company";
 
 export const metadata = {
-  title: "Products",
+  title: { absolute: "Industrial Products & Machinery | JPS Chennai" },
   description:
-    "Explore JAYAM TECH products — dal mill equipment, SS 304 swimming pools, pool ladders, automated gates, and boiler vacuum systems.",
+    "Explore dal mill equipment, SS 304 swimming pools, pool ladders, automated gates and boiler steam-line vacuum systems from JAYAM TECH ENGINEERING.",
+  alternates: { canonical: "/products" },
   openGraph: {
-    title: `Products | ${company.name}`,
-    description: "Industrial products engineered and fabricated in Chennai.",
+    type: "website",
+    title: "Industrial Products & Machinery | JPS Chennai",
+    description: "Browse engineered products and request specifications or a project quotation.",
+    url: "/products",
   },
 };
 
