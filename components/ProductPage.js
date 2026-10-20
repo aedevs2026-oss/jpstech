@@ -5,7 +5,6 @@ import ProductSpecTable from "./ProductSpecTable";
 import ProductCard from "./ProductCard";
 import CTASection from "./CTASection";
 import { getRelatedProducts } from "@/lib/products";
-import { company } from "@/lib/company";
 import JsonLd from "@/components/JsonLd";
 import { createBreadcrumbSchema } from "@/lib/seo";
 
