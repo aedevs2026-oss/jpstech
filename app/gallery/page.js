@@ -5,12 +5,15 @@ import { galleryItems } from "@/lib/unsplashImages";
 import { company } from "@/lib/company";
 
 export const metadata = {
-  title: "Gallery",
+  title: { absolute: "Project Gallery | JAYAM TECH ENGINEERING JPS" },
   description:
-    "Project gallery — automated gates, SS swimming pools, fabrication works, and plant equipment from JAYAM TECH ENGINEERING.",
+    "View project images of automated gates, stainless steel swimming pools, fabrication works and industrial equipment from JAYAM TECH ENGINEERING.",
+  alternates: { canonical: "/gallery" },
   openGraph: {
-    title: `Gallery | ${company.name}`,
-    description: "Completed fabrication and product installations.",
+    type: "website",
+    title: "Project Gallery | JAYAM TECH ENGINEERING JPS",
+    description: "Images of fabrication and product projects.",
+    url: "/gallery",
   },
 };
 
